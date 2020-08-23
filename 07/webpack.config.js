@@ -7,6 +7,8 @@ module.exports = {
     output: {
         filename: 'js/bundle.js',
         path: path.resolve(__dirname, './dist'),
+        // 发布到 CDN 时采用的方式
+        // publicPath: "http://localhost/webpack/07/dist/"
     },
 
     devServer: {
@@ -23,7 +25,9 @@ module.exports = {
                     {
                         loader: MiniCssExtractPlugin.loader,
                         options: {
-                            publicPath: '../'
+                            // publicPath: '../'
+                            // 发布到 CDN 时采用的方式
+                            // publicPath: 'http://localhost/webpack/07/dist/'
                         }
                     },
                     'css-loader'
@@ -49,6 +53,8 @@ module.exports = {
                         loader: MiniCssExtractPlugin.loader,
                         options: {
                             publicPath: '../'
+                            // 发布到 CDN 时采用的方式
+                            // publicPath: 'http://localhost/webpack/07/dist/'
                         }
                     },
                     'css-loader',
@@ -63,6 +69,10 @@ module.exports = {
                         options: {
                             limit: 10240,
                             name: "img/[name]-[hash].[ext]",
+                            // 不止是 CSS，也会影响 index.html 和 js 中引用的的图片路径
+                            // publicPath: '../'
+                            // 发布到 CDN 时采用的方式
+                            // publicPath: 'http://localhost/webpack/07/dist/'
                         }
                     }
                 ]

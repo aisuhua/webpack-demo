@@ -56,7 +56,7 @@ module.exports = {
                 ]
             },
             {
-                // 找出 html 页面所引用的图片，并交给 url-loader 处理
+                // 对 HTML 进行打包，找出 html 页面所引用的图片，并交给 url-loader 处理
                 test: /\.html$/,
                 use: ['html-loader']
             },
