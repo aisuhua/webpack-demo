@@ -13,6 +13,8 @@ npm init -y
 "scripts": {
     "build": "webpack ./src/index.js -o ./dist/bundle.js --mode=development"
 }
+
+npm run build
 ```
 
 方式3
