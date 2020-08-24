@@ -25,7 +25,7 @@ module.exports = {
                     {
                         loader: MiniCssExtractPlugin.loader,
                         options: {
-                            // publicPath: '../'
+                            publicPath: '../'
                             // 发布到 CDN 时采用的方式
                             // publicPath: 'http://localhost/webpack/07/dist/'
                         }
