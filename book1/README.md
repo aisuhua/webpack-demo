@@ -1,3 +1,34 @@
-## 《Webpack实战：入门、进阶与调优》
+# 《Webpack实战：入门、进阶与调优》
 
 - https://item.jd.com/12623590.html
+
+## 常见问题
+
+### 如何引入 jquery 文件，参考示例 17
+
+```js
+// 方式1
+window.$ = window.jQuery = require('./jquery.js');
+// 方式2
+global.$ = global.jQuery = require('./jquery.js');
+```
+
+- [Webpack gives $ is not defined or jQuery is not defined error in console](https://github.com/webpack/webpack/issues/4258#issuecomment-393718024)
+
+## 疑问
+
+使用 ES Modules 方式引入 CommonJS 的模块时，会产出 `bundle.js` 和 `0.bundle.js` 两个文件。
+
+```
+a.js
+module.exports = {
+
+};
+
+b.js
+import('./a.js');
+```
+
+## 解释
+
+npm 所管理的模块有些是遵循 CommonJS 规范，有些是 ES Modules，使用时要注意。
