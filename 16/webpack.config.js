@@ -2,6 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCssAssetsWebpackPlugin = require('optimize-css-assets-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
     entry: './src/js/index.js',
@@ -135,9 +136,24 @@ module.exports = {
         new MiniCssExtractPlugin({
             filename: 'css/[name]-[hash].css'
         }),
+        // 清理打包文件
+        new CleanWebpackPlugin(),
         // 压缩 CSS 文件
         // new OptimizeCssAssetsWebpackPlugin()
     ],
+
+    // 监听打包文件
+    watch: false,
+
+    // 监听选项
+    watchOptions: {
+        // 不监听的目录
+        ignored: /node_modules/,
+        // 更新频率，有变化后 500 毫秒再编译
+        aggregateTimeout: 500,
+        // 轮询间隔时间，默认1秒，询问系统文件是否变化
+        poll: 1000
+    },
 
     // 当 js 脚本发生报错时，能对应到源文件所在位置
     // 开发环境用 eval-source-map，生产用 source-map

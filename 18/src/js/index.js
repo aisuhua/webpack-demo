@@ -6,8 +6,6 @@ require('$css/scss');
 import { output } from './type';
 console.log(output('suhuazizi123'));
 
-Log('ssss');
-
 const img = require('../img/suhua.jpg');
 console.log(img.default);
 document.getElementById('img').innerHTML = '<img src="'+ img.default +'" />';
@@ -24,3 +22,9 @@ class Person {
         this.#name = 'suhua';
     }
 }
+
+import axios from 'axios';
+
+axios.get('/api/data.json').then(res => {
+    console.log(res);
+});

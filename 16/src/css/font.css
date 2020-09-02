@@ -1,0 +1,11 @@
+/* font.css */
+:root {
+    --red: red;
+}
+h1 {
+    font-size: 200px;
+    /*color: #528CE0;*/
+    display: flex;
+    transform: rotate(130deg);
+    color: var(--red);
+}
