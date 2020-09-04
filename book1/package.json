@@ -1,0 +1,14 @@
+{
+  "name": "book1",
+  "version": "1.0.0",
+  "description": "- https://item.jd.com/12623590.html",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "force-strict-loader": "file:force-strict-loader"
+  }
+}

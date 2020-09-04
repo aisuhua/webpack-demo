@@ -106,7 +106,7 @@ module.exports = {
             // {
             //     test: /\.js$/,
             //     loader: 'eslint-loader',
-            //     // 编译前执行
+            //     // 在其他模块编译前执行,避免检测编译后的文件
             //     enforce: 'pre',
             //     // 不检查的目录
             //     exclude: /node_modules/
