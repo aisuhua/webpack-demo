@@ -1,0 +1,24 @@
+/* base.css */
+@import "font.css";
+
+:root {
+    --green: green;
+}
+
+body {
+    background-color: cadetblue;
+}
+
+#ts {
+    width: 609px;
+    height: 609px;
+    background: url("../img/ts.png");
+    display: flex;
+    transform: rotate(130deg);
+    color: var(--green);
+}
+#loading {
+    width: 780px;
+    height: 422px;
+    background: url("../img/loading.gif");
+}
