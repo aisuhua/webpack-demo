@@ -1,26 +1,51 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     entry: './src/js/index.js',
     output: {
         path: path.resolve(__dirname, './dist'),
-        filename: 'bundle.js'
+        filename: 'js/bundle.js',
+        publicPath: ''
     },
 
     module: {
         rules: [
             {
                 test: /\.css$/,
-                use: ['style-loader', 'css-loader']
+                use: [
+                    'style-loader',
+                    {
+                        loader: 'css-loader',
+                        options: {
+
+                        }
+                    }
+                ]
             },
             {
-                test: /\.html$/,
-                use: ['html-loader']
+                test: /\.(sass|scss)$/,
+                use: [
+                    'style-loader',
+                    'css-loader',
+                    'sass-loader'
+                ],
+                enforce: "pre"
             }
         ]
     },
 
-    devtool: "eval-source-map",
+    plugins: [
+        new HtmlWebpackPlugin({
+            template: './src/index.html',
+            filename: 'index.html'
+        })
+    ],
+
+    devServer: {
+        port: 3000,
+        publicPath: ''
+    },
 
     mode: 'development'
 };

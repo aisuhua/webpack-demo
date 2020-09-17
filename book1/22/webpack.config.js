@@ -1,29 +1,34 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-    entry: './index.js',
+    entry: './src/js/index.js',
     output: {
         path: path.resolve(__dirname, './dist'),
-        filename: 'bundle.js'
+        filename: 'js/bundle.js',
+        publicPath: ''
     },
 
     module: {
         rules: [
             {
-                test: /\.js$/,
-                use: [
-                    {
-                        loader: 'force-strict-loader',
-                        options: {
-                            sourceMap: true
-                        }
-                    }
-                ]
+                test: /\.css$/,
+                use: ['style-loader', 'css-loader']
             }
         ]
     },
 
-    devtool: "eval-source-map",
+    plugins: [
+        new HtmlWebpackPlugin({
+            template: './src/index.html',
+            filename: 'index.html'
+        })
+    ],
+
+    devServer: {
+        port: 3000,
+        publicPath: ''
+    },
 
     mode: 'development'
 };
